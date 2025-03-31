@@ -11,6 +11,16 @@ public class ApplicationDbContext : DbContext
     {
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            var connectionString = Environment.GetEnvironmentVariable("QUIZAPP_DB_CONNECTION")
+                ?? "Host=localhost;Database=quizapp;Username=postgres;Password=postgres";
+            optionsBuilder.UseNpgsql(connectionString);
+        }
+    }
+
     public DbSet<Quiz> Quizzes { get; set; }
     public DbSet<Question> Questions { get; set; }
     public DbSet<Answer> Answers { get; set; }

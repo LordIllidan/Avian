@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using QuizApp.API.Domain.Models;
 
 namespace QuizApp.API.Domain.Repositories

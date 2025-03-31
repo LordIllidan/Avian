@@ -2,11 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService, Quiz, QuizAttempt, QuestionResponse } from '../../../../services/quiz.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-quiz-attempt',
   templateUrl: './quiz-attempt.component.html',
-  styleUrls: ['./quiz-attempt.component.scss']
+  styleUrls: ['./quiz-attempt.component.scss'],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatProgressSpinnerModule,
+    MatIconModule,  
+  ]
 })
 export class QuizAttemptComponent implements OnInit {
   quiz: Quiz | null = null;

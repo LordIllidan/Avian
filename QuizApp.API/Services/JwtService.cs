@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using QuizApp.API.Application.Models;
 using QuizApp.API.Domain.Models;
@@ -17,9 +18,9 @@ public class JwtService : IJwtService
 {
     private readonly JwtSettings _settings;
 
-    public JwtService(JwtSettings settings)
+    public JwtService(IOptions<JwtSettings> settings)
     {
-        _settings = settings;
+        _settings = settings.Value;
     }
 
     public string GenerateToken(User user)
