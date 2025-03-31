@@ -4,7 +4,10 @@ import { authGuard } from './guards/auth.guard';
 import { roleGuard } from './guards/role.guard';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { 
+    path: 'login', 
+    component: LoginComponent 
+  },
   {
     path: 'quizzes',
     loadChildren: () => import('./features/quizzes/quizzes.routes').then(m => m.QUIZ_ROUTES),
@@ -16,5 +19,14 @@ export const routes: Routes = [
     canActivate: [authGuard, roleGuard],
     data: { roles: ['Admin'] }
   },
-  { path: '', redirectTo: '/quizzes', pathMatch: 'full' }
+  { 
+    path: '', 
+    redirectTo: '/quizzes', 
+    pathMatch: 'full' 
+  },
+  { 
+    path: '**', 
+    redirectTo: '/quizzes', 
+    pathMatch: 'full' 
+  }
 ];

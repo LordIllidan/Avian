@@ -16,7 +16,8 @@ export const ADMIN_ROUTES: Routes = [
       },
       {
         path: '',
-        redirectTo: 'quizzes'
+        redirectTo: 'quizzes',
+        pathMatch: 'full'
       }
     ]
   }
