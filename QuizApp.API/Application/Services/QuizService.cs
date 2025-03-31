@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using QuizApp.API.Domain.Models;
+using QuizApp.API.Domain.Models.Quiz;
 using QuizApp.API.Domain.Repositories;
 
 namespace QuizApp.API.Application.Services;

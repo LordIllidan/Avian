@@ -1,31 +1,47 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 
-namespace QuizApp.API.Domain.Models;
+namespace QuizApp.API.Domain.Models.Quiz;
 
 public class Quiz
 {
-    public int Id { get; private set; }
-    public string Title { get; private set; }
-    public string Description { get; private set; }
-    public int TimeLimit { get; private set; }
-    public DateTime CreatedAt { get; private set; }
-    public DateTime? ExpiresAt { get; private set; }
-    public int CreatedById { get; private set; }
     private readonly List<Question> _questions;
     public IReadOnlyCollection<Question> Questions => _questions.AsReadOnly();
 
-    private Quiz() { }
+    public int Id { get; private set; }
+
+    [Required]
+    public string Title { get; private set; }
+
+    public string? Description { get; private set; }
+
+    public DateTime CreatedAt { get; private set; }
+
+    public DateTime? ExpiresAt { get; private set; }
+
+    public int CreatedById { get; private set; }
+
+    public virtual User CreatedBy { get; private set; }
+
+    public virtual ICollection<QuizAttempt> Attempts { get; private set; }
+    public int TimeLimit { get; private set; }
+
+    private Quiz()
+    {
+        _questions = new List<Question>();
+        Attempts = new List<QuizAttempt>();
+    }
 
     public Quiz(string title, string description, int timeLimit, int createdById)
     {
         Title = title ?? throw new ArgumentNullException(nameof(title));
-        Description = description ?? throw new ArgumentNullException(nameof(description));
+        Description = description;
         TimeLimit = timeLimit;
         CreatedById = createdById;
         CreatedAt = DateTime.UtcNow;
         _questions = new List<Question>();
+        Attempts = new List<QuizAttempt>();
     }
 
     public void AddQuestion(string text, List<Answer> answers)

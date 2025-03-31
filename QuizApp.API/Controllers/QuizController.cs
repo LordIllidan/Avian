@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QuizApp.API.Application.Services;
 using QuizApp.API.Domain.Models;
+using QuizApp.API.Domain.Models.Quiz;
 using System.Security.Claims;
 
 namespace QuizApp.API.Controllers;

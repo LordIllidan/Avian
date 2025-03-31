@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using QuizApp.API.Application.Models;
 using QuizApp.API.Domain.Models;
 using QuizApp.API.Services;
 

@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+
+using QuizApp.API.Domain.Models.Quiz;
 
 namespace QuizApp.API.Domain.Models;
 
@@ -25,7 +24,7 @@ public class QuizAttempt
         _responses = new List<QuestionResponse>();
     }
 
-    public void SubmitResponses(List<QuestionResponse> responses, Quiz quiz)
+    public void SubmitResponses(List<QuestionResponse> responses, Quiz.Quiz quiz)
     {
         if (responses == null || !responses.Any())
             throw new ArgumentException("Responses cannot be empty", nameof(responses));

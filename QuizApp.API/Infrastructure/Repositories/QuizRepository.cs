@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using QuizApp.API.Domain.Models;
+using QuizApp.API.Domain.Models.Quiz;
 using QuizApp.API.Domain.Repositories;
 using QuizApp.API.Infrastructure.Data;
 
