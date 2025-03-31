@@ -1,0 +1,51 @@
+<div class="quiz-list-container">
+    <h1>Available Quizzes</h1>
+
+    <div *ngIf="loading" class="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="error" class="error">
+        <mat-card>
+            <mat-card-content>
+                <p>{{ error }}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div *ngIf="!loading && !error" class="quizzes-grid">
+        <mat-card *ngFor="let quiz of quizzes" class="quiz-card">
+            <mat-card-header>
+                <mat-card-title>{{ quiz.title }}</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <p class="description">{{ quiz.description }}</p>
+                <div class="quiz-info">
+                    <span>
+                        <mat-icon>question_answer</mat-icon>
+                        {{ quiz.questions.length }} questions
+                    </span>
+                    <span>
+                        <mat-icon>timer</mat-icon>
+                        {{ quiz.timeLimit }} minutes
+                    </span>
+                </div>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="startQuiz(quiz.id)">
+                    Start Quiz
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <div *ngIf="!loading && !error && quizzes.length === 0" class="no-quizzes">
+        <mat-card>
+            <mat-card-content>
+                <p>No quizzes available at the moment.</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
