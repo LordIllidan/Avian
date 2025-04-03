@@ -6,6 +6,10 @@ export const QUIZ_ROUTES: Routes = [
     loadComponent: () => import('./components/quiz-list/quiz-list.component').then(m => m.QuizListComponent)
   },
   {
+    path: 'new',
+    loadComponent: () => import('./components/quiz-form/quiz-form.component').then(m => m.QuizFormComponent)
+  },
+  {
     path: ':id/attempt/:attemptId',
     loadComponent: () => import('./components/quiz-attempt/quiz-attempt.component').then(m => m.QuizAttemptComponent)
   }

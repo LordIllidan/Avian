@@ -8,7 +8,7 @@ using System.Security.Claims;
 namespace QuizApp.API.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/quizzes")]
 [Authorize]
 public class QuizController : ControllerBase
 {

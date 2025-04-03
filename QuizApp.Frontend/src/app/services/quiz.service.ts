@@ -59,15 +59,7 @@ export class QuizService {
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService
   ) {}
-
-  private getHeaders() {
-    const token = this.authService.getToken();
-    return {
-      Authorization: `Bearer ${token}`
-    };
-  }
 
   getQuizzes(): Observable<Quiz[]> {
     return this.http.get<Quiz[]>(this.apiUrl);
@@ -78,7 +70,7 @@ export class QuizService {
   }
 
   createQuiz(quiz: Omit<Quiz, 'id' | 'createdAt'>): Observable<Quiz> {
-    return this.http.post<Quiz>(`${environment.apiUrl}/api/quiz`, quiz, { headers: this.getHeaders() });
+    return this.http.post<Quiz>(`${environment.apiUrl}/api/quizzes`, quiz);
   }
 
   startQuiz(quizId: number): Observable<QuizAttempt> {
@@ -90,6 +82,6 @@ export class QuizService {
   }
 
   getQuizResults(quizId: number): Observable<QuizResults> {
-    return this.http.get<QuizResults>(`${environment.apiUrl}/api/quiz/${quizId}/results`, { headers: this.getHeaders() });
+    return this.http.get<QuizResults>(`${environment.apiUrl}/api/quiz/${quizId}/results`);
   }
 } 

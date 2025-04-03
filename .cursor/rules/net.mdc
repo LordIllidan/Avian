@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- Jestemy na widnowsk konsola To Powershell
+- Uzywaj .net 9.x
+- Preferuj controllery zamiast wpisu w program.cs
+- Uzywaj składni dla angualra 19.x
+- Preferuj uzywanie sygnałów zamiast rxjs
+

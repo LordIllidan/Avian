@@ -1,0 +1,131 @@
+.login-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    background-image: url('/assets/tlo2.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-right: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.login-card {
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 2.5rem 3.5rem;
+    border-radius: 16px;
+    width: 320px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-right: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+        margin-bottom: 2.5rem;
+        color: #fff;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-bottom: 2.5rem;
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+        height: 80px;
+        width: 100%;
+
+        label {
+            display: none;
+        }
+
+        .form-control {
+            width: 89%;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.9);
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.5);
+            }
+
+            &.is-invalid {
+                border-color: #dc3545;
+            }
+        }
+
+        .invalid-feedback {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+    }
+
+    .alert {
+        padding: 0.75rem;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        &.alert-danger {
+            background-color: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+            color: #ff6b6b;
+        }
+    }
+
+    .btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-align: center;
+
+        &.btn-primary {
+            background-color: #4a90e2;
+            color: white;
+
+            &:hover {
+                background-color: #357ab8;
+            }
+
+            &:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+            }
+        }
+    }
+}
